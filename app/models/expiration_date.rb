@@ -1,0 +1,2 @@
+class ExpirationDate < ApplicationRecord
+end
