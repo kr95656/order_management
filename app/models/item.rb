@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   belongs_to :tax                             #税金
   belongs_to :expiration_date                 #賞味期限
   belongs_to :processing                      #加工日
+  belongs_to :user                            #ユーザー
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :shipping_prefecture #産地
