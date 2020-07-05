@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2020_07_03_082133) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
-    t.string "size", null: false
-    t.integer "price", null: false
-    t.float "weight", null: false
-    t.integer "shipping_prefecture", null: false
+    t.string "size_id", null: false
+    t.integer "price_id", null: false
+    t.float "weight_id", null: false
+    t.integer "shipping_prefecture_id", null: false
     t.bigint "tax_id", null: false
     t.bigint "processing_id", null: false
     t.bigint "shipping_day_id", null: false
