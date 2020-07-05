@@ -1,2 +1,0 @@
-class ProcessingDate < ApplicationRecord
-end
