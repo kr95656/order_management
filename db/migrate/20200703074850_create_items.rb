@@ -3,7 +3,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
     create_table :items do |t|
       t.string :name, null: false                                       #商品名
       t.string :size_id, null: false                                       #サイズ
-      t.integer :price_id, null: false                                     #価格
+      t.integer :price, null: false                                     #価格
       t.float :weight_id, null: false                                      #重量
       t.integer :shipping_prefecture_id, null: false                       #産地
       t.references :tax, null: false, foreign_key: true                 #税金
