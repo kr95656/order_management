@@ -1,6 +1,7 @@
 %form
   = form_with model: @item, local: true do |f|
-    = f.form.text_field :name, placeholder: "40字まで"
+    = f.text_field :name, placeholder: "40字まで"
     = f.number_field    :price
     = f.collection_select :shipping_prefecture_id, ShippingPrefecture.all, :id, :name, { prompt: "選択してください" }
+    = f.collection_select :size_id, Size.all, :id, :name, { prompt: "選択してください" }
     = f.submit
