@@ -42,10 +42,8 @@ ActiveRecord::Schema.define(version: 2020_07_03_082133) do
     t.bigint "processing_id", null: false
     t.bigint "shipping_day_id", null: false
     t.bigint "expiration_date_id", null: false
-    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["expiration_date_id"], name: "index_items_on_expiration_date_id"
     t.index ["processing_id"], name: "index_items_on_processing_id"
     t.index ["shipping_day_id"], name: "index_items_on_shipping_day_id"
@@ -79,7 +77,6 @@ ActiveRecord::Schema.define(version: 2020_07_03_082133) do
   end
 
   add_foreign_key "cards", "users"
-  add_foreign_key "items", "categories"
   add_foreign_key "items", "expiration_dates"
   add_foreign_key "items", "processings"
   add_foreign_key "items", "shipping_days"

@@ -10,7 +10,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.references :processing, null: false, foreign_key: true          #加工日
       t.references :shipping_day, null: false, foreign_key: true        #到着までの期間 
       t.references :expiration_date, null: false, foreign_key: true     #賞味期限
-      t.references :category, null: false, foreign_key: true            #カテゴリー
+      # t.references :category, null: false, foreign_key: true            #カテゴリー
       t.timestamps
     end
   end
