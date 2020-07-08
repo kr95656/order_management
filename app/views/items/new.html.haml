@@ -10,4 +10,4 @@
     = f.collection_select :shipping_day_id, ShippingDay.all, :id, :name, { prompt: "選択してください" }
     = f.date_select :expiration_date_id, { prompt: "----", start_year: 1990, end_year: 2100 } 
     -# = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
-    = f.submit  
+    = f.submit "送信"
