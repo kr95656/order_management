@@ -14,7 +14,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry #データを保存するメソッドの中に
     item = Item.create(item_params)
     if item.save
       redirect_to root_path
