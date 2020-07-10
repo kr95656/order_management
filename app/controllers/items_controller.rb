@@ -10,14 +10,16 @@ class ItemsController < ApplicationController
   #次回も、データベースに保存されない原因を追求する。
   def new
     # @product = Form::Product.new
-    @item = Form::Item.new
+    # @item = Form::Item.new
+    @item = Item.new
     @parents = Category.all.order("id ASC").limit(13)
   end
   
   def create
     # binding.pry
     # @product = Form::Product.new(product_params)
-    @item = Form::Item.new(item_params)
+    # @item = Form::Item.new(item_params)
+    @item = Item.create(item_params)
     if @item.save
       redirect_to root_path
     else
@@ -29,17 +31,17 @@ class ItemsController < ApplicationController
 
   private
   
-  def item_params
-    params
-      .require(:item)
-      .permit(Form::Item::REGISTRABLE_ATTRIBUTES)
-  end
-
   # def item_params
   #   params
   #     .require(:item)
-  #     .permit(:price, :name, :size_id, :weight_id, :shipping_prefecture_id, :tax, :shipping_day_id, :processing_id, :expiration_date_id) 
+  #     .permit(Form::Item::REGISTRABLE_ATTRIBUTES)
   # end
+
+  def item_params
+    params
+      .require(:item)
+      .permit(:price, :name, :size_id, :weight_id, :shipping_prefecture_id, :tax, :shipping_day_id, :processing_id, :expiration_date_id) 
+  end
 
   # def product_params
   #   params
