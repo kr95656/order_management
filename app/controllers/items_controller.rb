@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     # binding.pry
     # @product = Form::Product.new(product_params)
     # @item = Form::Item.new(item_params)
-    @item = Item.create(item_params)
+    @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
     else
@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
   def item_params
     params
       .require(:item)
-      .permit(:price, :name, :size_id, :weight_id, :shipping_prefecture_id, :tax, :shipping_day_id, :processing_id, :expiration_date_id) 
+      .permit(:price, :name, :size_id, :weight_id, :shipping_prefecture_id, :tax, :shipping_day_id, :processing, :expiration_date) 
   end
 
   # def product_params
