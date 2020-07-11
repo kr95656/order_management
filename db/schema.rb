@@ -39,13 +39,11 @@ ActiveRecord::Schema.define(version: 2020_07_03_082133) do
     t.float "weight_id", null: false
     t.integer "shipping_prefecture_id", null: false
     t.integer "tax", null: false
-    t.bigint "processing_id", null: false
+    t.date "processing", null: false
+    t.date "expiration_date", null: false
     t.bigint "shipping_day_id", null: false
-    t.bigint "expiration_date_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["expiration_date_id"], name: "index_items_on_expiration_date_id"
-    t.index ["processing_id"], name: "index_items_on_processing_id"
     t.index ["shipping_day_id"], name: "index_items_on_shipping_day_id"
   end
 
@@ -70,7 +68,5 @@ ActiveRecord::Schema.define(version: 2020_07_03_082133) do
   end
 
   add_foreign_key "cards", "users"
-  add_foreign_key "items", "expiration_dates"
-  add_foreign_key "items", "processings"
   add_foreign_key "items", "shipping_days"
 end
