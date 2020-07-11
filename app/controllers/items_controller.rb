@@ -17,8 +17,8 @@ class ItemsController < ApplicationController
   
   def create
     # binding.pry
-    # @product = Form::Product.new(product_params)
-    # @item = Form::Item.new(item_params)
+    params[:item][:processing] = processing_join
+    params[:item][:expiration_date] = expiration_date_join
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
@@ -27,15 +27,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  
-
   private
-  
-  # def item_params
-  #   params
-  #     .require(:item)
-  #     .permit(Form::Item::REGISTRABLE_ATTRIBUTES)
-  # end
 
   def item_params
     params
@@ -43,10 +35,33 @@ class ItemsController < ApplicationController
       .permit(:price, :name, :size_id, :weight_id, :shipping_prefecture_id, :tax, :shipping_day_id, :processing, :expiration_date) 
   end
 
-  # def product_params
-  #   params
-  #     .require(:form_product)
-  #     .permit(Form::Product::REGISTRABLE_ATTRIBUTES)
-  # end
+  def processing_join
+    # パラメータ取得
+    date = params[:item][:processing]
+
+    # ブランク時のエラー回避のため、ブランクだったら何もしない
+    if date["processing(1i)"].empty? && date["processing(2i)"].empty? && date["processing(3i)"].empty?
+      return
+    end
+
+    # 年月日別々できたものを結合して新しいDate型変数を作って返す
+    Date.new date["processing(1i)"].to_i,date["processing(2i)"].to_i,date["processing(3i)"].to_i
+
+  end
+
+  def expiration_date_join
+    # パラメータ取得
+    date = params[:item][:expiration_date]
+
+    # ブランク時のエラー回避のため、ブランクだったら何もしない
+    if date["expiration_date(1i)"].empty? && date["expiration_date(2i)"].empty? && date["expiration_date(3i)"].empty?
+      return
+    end
+
+    # 年月日別々できたものを結合して新しいDate型変数を作って返す
+    Date.new date["expiration_date(1i)"].to_i,date["expiration_date(2i)"].to_i,date["expiration_date(3i)"].to_i
+
+  end
+
 
 end
