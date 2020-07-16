@@ -8,17 +8,32 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.create(item_params)
+    
     if @item.save
       redirect_to root_path
     else
       render :new
     end
+
   end
+
+
+
+
+  # def create
+  #   @item = Item.create(item_params)
+  #   if @item.save
+  #     redirect_to root_path
+  #   else
+  #     render :new
+  #     binding.pry
+  #   end
+  # end
 
   private
 
   def item_params
-    params.require(:item).permit(:price, :name, :tax) 
+    params.require(:item).permit(:price, :name, :tax)
   end
   
 end
