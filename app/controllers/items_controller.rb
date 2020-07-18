@@ -22,7 +22,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     weight = Weight.find(@item.weight_id)
     @weight = weight.name
-    
+    size = Size.find(@item.size_id)
+    @size = size.name
+
   end
 
   private
