@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
 
-  def index; end
+  def index
+    @items = Item.all
+    # @item = Item.find_by(params[:id])
+  end
 
   def new
     @item = Item.new
@@ -13,6 +16,15 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
+    weight = Weight.find(@item.weight_id)
+    @weight = weight.name
+    size = Size.find(@item.size_id)
+    @size = size.name
+
   end
 
   private
