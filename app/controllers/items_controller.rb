@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
 
   def index
-    @item = Item.find(params[:id])
+    @items = Item.all
+    # @item = Item.find_by(params[:id])
   end
 
   def new
