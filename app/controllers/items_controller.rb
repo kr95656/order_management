@@ -20,6 +20,10 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    # postage_payer =  PostagePayer.find(@item.postage_payer_id)
+    @postage_payer = postage_payer.name
+    weight = Weight.find(@item.weight_id)
+    @weight = weight.name
   end
 
   private
