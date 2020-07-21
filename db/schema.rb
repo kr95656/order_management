@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_074850) do
     t.integer "price", null: false
     t.integer "size_id", null: false
     t.integer "weight_id", null: false
+    t.integer "shipping_prefecture_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

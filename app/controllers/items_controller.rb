@@ -24,13 +24,15 @@ class ItemsController < ApplicationController
     @weight = weight.name
     size = Size.find(@item.size_id)
     @size = size.name
+    shipping_prefecture = ShippingPrefecture.find(@item.shipping_prefecture_id)
+    @shipping_prefecture = shipping_prefecture.name
 
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:price, :name, :tax, :size_id, :weight_id)
+    params.require(:item).permit(:price, :name, :tax, :size_id, :weight_id, :shipping_prefecture_id)
   end
 
 end
