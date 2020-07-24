@@ -20,12 +20,16 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    
     weight = Weight.find(@item.weight_id)
     @weight = weight.name
+    
     size = Size.find(@item.size_id)
     @size = size.name
+    
     shipping_prefecture = ShippingPrefecture.find(@item.shipping_prefecture_id)
     @shipping_prefecture = shipping_prefecture.name
+    
     shipping_day = ShippingDay.find(@item.shipping_day_id)
     @shipping_day = shipping_day.name
   end
