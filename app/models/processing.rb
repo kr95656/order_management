@@ -1,2 +1,0 @@
-class Processing < ApplicationRecord
-end
