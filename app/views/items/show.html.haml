@@ -14,6 +14,7 @@
   %li
     = @shipping_day
   %li
-    = @item.processing.strftime('%Y年%m月%d日')         #加工日
+    = "#{@item.processing.strftime('%Y年%m月%d日')} 加工日 "         #加工日
+    
   %li
-    = @item.expiration_date.strftime('%Y年%m月%d日')    #賞味期限
+    = "#{@item.expiration_date.strftime('%Y年%m月%d日')} 賞味期限"                #賞味期限
