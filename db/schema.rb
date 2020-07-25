@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_074850) do
     t.integer "shipping_prefecture_id", null: false
     t.integer "shipping_day_id", null: false
     t.date "processing", null: false
+    t.date "expiration_date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
