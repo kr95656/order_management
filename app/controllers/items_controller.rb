@@ -10,6 +10,13 @@ class ItemsController < ApplicationController
     @parents = Category.all.order("id ASC").limit(13) #昇順にカテゴリーの親リストを13個並べる
   end
 
+   # 以下全て、formatはjsonのみ
+   # 親カテゴリーが選択された後に動くアクション
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+  end
+
   def create
     @item = Item.create(item_params)
     if @item.save
