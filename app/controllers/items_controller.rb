@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @parents = Category.all.order("id ASC").limit(13)
+    @parents = Category.all.order("id ASC").limit(13) #昇順にカテゴリーの親リストを13個並べる
   end
 
   def create
