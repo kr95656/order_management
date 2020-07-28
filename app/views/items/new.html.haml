@@ -11,4 +11,5 @@
     = f.date_select :processing, { prompt: "----", start_year: 1990, end_year: 2100 }
     = f.date_select :expiration_date, { prompt: "----", start_year: 1990, end_year: 2100 } 
     -# = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
+    = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
     = f.submit "送信" 
