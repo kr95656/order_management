@@ -7,7 +7,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @parents = Category.all.order("id ASC").limit(13) #昇順にカテゴリーの親リストを13個並べる
+    # @parents = Category.all.order("id ASC").limit(13) #昇順にカテゴリーの親リストを13個並べる
+
+    @category_parent_array = ["---"] #セレクトボックスの初期値設定
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name #データベースから、親カテゴリーのみ抽出し、配列化
+    end
   end
 
    # 以下全て、formatはjsonのみ
